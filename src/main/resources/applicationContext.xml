@@ -7,9 +7,22 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="testBean"
-          class="firstproject.TestBean">
-        <constructor-arg value="Neil"/>
+    <context:property-placeholder location="musicPlayer.properties"/>
+
+    <bean id="musicBean"
+          class="firstproject.ClassicalMusic"
+          init-method="doInit"
+          destroy-method="doDestruction"
+          factory-method="getClassicalMusic">
+    </bean>
+
+    <bean id="musicPlayer"
+          class="firstproject.MusicPlayer"
+          scope="prototype">
+          <property name="music" ref="musicBean"/>
+
+          <property name="name" value="${musicPlayer.name}"/>
+          <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
 
 </beans>
