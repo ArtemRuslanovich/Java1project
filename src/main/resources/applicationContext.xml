@@ -9,7 +9,11 @@
 
     <bean id="musicBean"
           class="firstproject.ClassicalMusic">
+    </bean>
 
+    <bean id="musicPlayer"
+          class="firstproject.MusicPlayer">
+          <constructor-arg ref="musicBean"/>
     </bean>
 
 </beans>
