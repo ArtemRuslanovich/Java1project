@@ -10,11 +10,15 @@
     <context:property-placeholder location="musicPlayer.properties"/>
 
     <bean id="musicBean"
-          class="firstproject.ClassicalMusic">
+          class="firstproject.ClassicalMusic"
+          init-method="doInit"
+          destroy-method="doDestruction"
+          factory-method="getClassicalMusic">
     </bean>
 
     <bean id="musicPlayer"
-          class="firstproject.MusicPlayer">
+          class="firstproject.MusicPlayer"
+          scope="prototype">
           <property name="music" ref="musicBean"/>
 
           <property name="name" value="${musicPlayer.name}"/>
