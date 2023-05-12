@@ -1,12 +1,16 @@
 package firstproject;
 
+import org.springframework.stereotype.Component;
+
+
+
+@Component
 public class ClassicalMusic implements Music {
     private ClassicalMusic() {};
-
-    public static ClassicalMusic getClassicalMusic() {
-        return new ClassicalMusic();
-    }
-
+//   Factory method
+//    public static ClassicalMusic getClassicalMusic() {
+//        return new ClassicalMusic();
+//    }
     public void doInit() {
         System.out.println("init classical music");
     }
